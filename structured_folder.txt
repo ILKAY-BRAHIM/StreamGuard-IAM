@@ -1,0 +1,77 @@
+project-keycloak-rabbitmq/
+│
+├── README.md                       # Overview of the project, instructions for setup, and usage
+├── docs/
+│   ├── architecture.md             # Explanation of the architecture and design
+│   ├── streaming-setup.md          # Details on RabbitMQ streaming configurations
+│   ├── keycloak-multi-tenancy.md   # Steps for multi-tenancy in Keycloak
+│   ├── authentication.md           # Advanced authentication setup details
+│   └── monitoring.md               # Monitoring and logging setup instructions
+│
+├── scripts/
+│   ├── deploy-keycloak.sh          # Script to deploy Keycloak
+│   ├── deploy-rabbitmq.sh          # Script to deploy RabbitMQ
+│   ├── provision-infra.sh          # Infrastructure provisioning script (e.g., with Terraform or Ansible)
+│   └── ci-cd-pipeline.yml          # CI/CD pipeline definition
+│
+├── helm/
+│   ├── keycloak/                   # Helm chart for Keycloak
+│   └── rabbitmq/                   # Helm chart for RabbitMQ
+│
+├── kubernetes/
+│   ├── keycloak-deployment.yaml    # Kubernetes manifest for Keycloak
+│   ├── rabbitmq-deployment.yaml    # Kubernetes manifest for RabbitMQ
+│   ├── ingress.yaml                # Ingress configurations for both services
+│   ├── storage.yaml                # Persistent storage configurations
+│   └── secrets.yaml                # Secure storage for sensitive data
+│
+├── config/
+│   ├── keycloak/
+│   │   ├── realms/
+│   │   │   ├── corporate-realm.json
+│   │   │   ├── partner-realm.json
+│   │   │   └── customer-realm.json
+│   │   ├── login-themes/
+│   │   │   ├── corporate-theme/
+│   │   │   ├── partner-theme/
+│   │   │   └── customer-theme/
+│   │   └── auth-flows.json         # Advanced authentication configuration
+│   └── rabbitmq/
+│       ├── exchanges.json          # RabbitMQ exchange configurations
+│       ├── queues.json             # Queue configurations for realms
+│       └── policies.json           # RabbitMQ policies for routing and security
+│
+├── monitoring/
+│   ├── grafana/
+│   │   ├── dashboards/
+│   │   │   ├── keycloak-dashboard.json
+│   │   │   └── rabbitmq-dashboard.json
+│   │   └── grafana-config.yaml     # Grafana configuration
+│   └── prometheus/
+│       ├── prometheus-config.yaml  # Prometheus configuration
+│       └── rules/
+│           └── alert-rules.yaml    # Alerting rules
+│
+├── tests/
+│   ├── unit/
+│   │   ├── test_keycloak.py        # Unit tests for Keycloak configurations
+│   │   └── test_rabbitmq.py        # Unit tests for RabbitMQ configurations
+│   ├── integration/
+│   │   ├── test_streaming.py       # Integration tests for streaming
+│   │   └── test_authentication.py  # Integration tests for authentication flows
+│   └── resilience/
+│       └── test_failure_scenarios.py # Resilience tests for RabbitMQ and Keycloak
+│
+├── ci-cd/
+│   ├── pipelines/
+│   │   ├── build-pipeline.yml      # CI pipeline
+│   │   └── deploy-pipeline.yml     # CD pipeline
+│   └── tests/
+│       ├── lint-checks.yml         # Code quality checks
+│       └── stream-validation.yml   # Validation of streaming setups
+│
+└── logs/
+    ├── keycloak/
+    │   └── keycloak-activity.log
+    └── rabbitmq/
+        └── rabbitmq-streaming.log
